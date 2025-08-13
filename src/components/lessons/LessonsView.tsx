@@ -178,35 +178,37 @@ export function LessonsView() {
     return (
       <div className="space-y-6 max-w-full overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" onClick={() => setView("list")}>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 max-w-full overflow-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 min-w-0 overflow-hidden">
+            <Button variant="ghost" onClick={() => setView("list")} className="self-start">
               ← Back to Lessons
             </Button>
-            <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground break-words">
               {view === "create" ? "Create New Lesson" : "Edit Lesson"}
             </h1>
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={() => setView("list")}>
-              <X className="w-4 h-4 mr-2" />
-              Cancel
+          <div className="flex gap-2 flex-shrink-0">
+            <Button variant="outline" onClick={() => setView("list")} className="text-sm">
+              <X className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Cancel</span>
+              <span className="sm:hidden">Cancel</span>
             </Button>
-            <Button onClick={handleSaveLesson} className="bg-gradient-primary text-white">
-              <Save className="w-4 h-4 mr-2" />
-              Save Lesson
+            <Button onClick={handleSaveLesson} className="bg-gradient-primary text-white text-sm">
+              <Save className="w-4 h-4 mr-1 sm:mr-2" />
+              <span className="hidden sm:inline">Save Lesson</span>
+              <span className="sm:hidden">Save</span>
             </Button>
           </div>
         </div>
 
         {/* Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 max-w-full overflow-hidden">
-          <div className="lg:col-span-2 space-y-6 min-w-0 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 w-full max-w-full overflow-hidden">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6 min-w-0 w-full overflow-hidden">
             <Card className="border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Lesson Details</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 p-4 sm:p-6">
                 <div>
                   <Label htmlFor="title">Lesson Title</Label>
                   <Input
@@ -280,12 +282,12 @@ export function LessonsView() {
             </Card>
           </div>
 
-          <div className="space-y-6 min-w-0 overflow-hidden">
+          <div className="space-y-4 sm:space-y-6 min-w-0 w-full overflow-hidden">
             <Card className="border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Publishing</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 p-4 sm:p-6">
                 <Button className="w-full bg-gradient-primary text-white">
                   Publish Lesson
                 </Button>
@@ -302,7 +304,7 @@ export function LessonsView() {
               <CardHeader>
                 <CardTitle>Media</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 p-4 sm:p-6">
                 <div className="border-2 border-dashed border-muted rounded-lg p-6 text-center">
                   <Image className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
                   <p className="text-sm text-muted-foreground mb-2">Upload lesson thumbnail</p>
