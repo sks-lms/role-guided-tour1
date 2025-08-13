@@ -176,14 +176,14 @@ export function LessonsView() {
   // Create/Edit Form Component
   if (view === "create" || view === "edit") {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-full overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Button variant="ghost" onClick={() => setView("list")}>
               ← Back to Lessons
             </Button>
-            <h1 className="text-3xl font-bold text-foreground">
+            <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
               {view === "create" ? "Create New Lesson" : "Edit Lesson"}
             </h1>
           </div>
@@ -200,8 +200,8 @@ export function LessonsView() {
         </div>
 
         {/* Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 overflow-hidden px-4 sm:px-0">
-          <div className="lg:col-span-2 space-y-6 min-w-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 max-w-full overflow-hidden">
+          <div className="lg:col-span-2 space-y-6 min-w-0 overflow-hidden">
             <Card className="border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Lesson Details</CardTitle>
@@ -280,7 +280,7 @@ export function LessonsView() {
             </Card>
           </div>
 
-          <div className="space-y-6 min-w-0">
+          <div className="space-y-6 min-w-0 overflow-hidden">
             <Card className="border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Publishing</CardTitle>
@@ -331,7 +331,7 @@ export function LessonsView() {
   // Detail View Component
   if (view === "detail" && selectedLesson) {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-full overflow-hidden">
         {/* Back Button */}
         <Button variant="ghost" onClick={() => setView("list")}>
           ← Back to Lessons
@@ -340,7 +340,7 @@ export function LessonsView() {
         {/* Lesson Header */}
         <div className="bg-gradient-primary rounded-xl p-6 text-white">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 mb-3">
                 <Badge className={`${getTypeColor(selectedLesson.type)} border-0`}>
                   {selectedLesson.type}
@@ -349,8 +349,8 @@ export function LessonsView() {
                   {selectedLesson.status}
                 </Badge>
               </div>
-              <h1 className="text-3xl font-bold mb-2">{selectedLesson.title}</h1>
-              <p className="text-white/80 text-lg mb-4">{selectedLesson.description}</p>
+              <h1 className="text-2xl lg:text-3xl font-bold mb-2 break-words">{selectedLesson.title}</h1>
+              <p className="text-white/80 text-lg mb-4 break-words">{selectedLesson.description}</p>
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center gap-1">
                   <BookOpen className="w-4 h-4" />
@@ -425,16 +425,16 @@ export function LessonsView() {
 
   // List View (Default)
   return (
-    <div className="space-y-6 px-4 sm:px-0">
+    <div className="space-y-6 max-w-full overflow-hidden">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Lessons</h1>
+        <div className="min-w-0">
+          <h1 className="text-2xl lg:text-3xl font-bold text-foreground">Lessons</h1>
           <p className="text-muted-foreground">Create and manage your lesson content</p>
         </div>
         <Button 
           onClick={handleCreateLesson}
-          className="bg-gradient-primary text-white hover:shadow-glow transition-all"
+          className="bg-gradient-primary text-white hover:shadow-glow transition-all flex-shrink-0"
         >
           <Plus className="w-4 h-4 mr-2" />
           Create Lesson
@@ -445,7 +445,7 @@ export function LessonsView() {
       <Card className="border-0 shadow-card">
         <CardContent className="p-6">
           <div className="flex flex-col sm:flex-row gap-4">
-            <div className="relative flex-1">
+            <div className="relative flex-1 min-w-0">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search lessons..."
@@ -454,7 +454,7 @@ export function LessonsView() {
                 className="pl-10"
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button variant="outline" size="sm">
                 <Filter className="w-4 h-4 mr-2" />
                 Filter
@@ -482,26 +482,26 @@ export function LessonsView() {
             >
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4 flex-1">
-                    <div className="p-3 rounded-lg bg-muted">
+                  <div className="flex items-center space-x-4 flex-1 min-w-0 overflow-hidden">
+                    <div className="p-3 rounded-lg bg-muted flex-shrink-0">
                       <TypeIcon className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
+                    <div className="flex-1 min-w-0 overflow-hidden">
+                      <div className="flex items-center gap-3 mb-2 flex-wrap">
+                        <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors break-words">
                           {lesson.title}
                         </h3>
-                        <Badge className={`${getTypeColor(lesson.type)} border-0`}>
+                        <Badge className={`${getTypeColor(lesson.type)} border-0 flex-shrink-0`}>
                           {lesson.type}
                         </Badge>
-                        <Badge className={`${getStatusColor(lesson.status)} border-0`}>
+                        <Badge className={`${getStatusColor(lesson.status)} border-0 flex-shrink-0`}>
                           {lesson.status}
                         </Badge>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-2 line-clamp-2">
+                      <p className="text-sm text-muted-foreground mb-2 line-clamp-2 break-words">
                         {lesson.description}
                       </p>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground flex-wrap">
                         <div className="flex items-center gap-1">
                           <BookOpen className="w-4 h-4" />
                           {lesson.course}
@@ -521,7 +521,7 @@ export function LessonsView() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     <Button 
                       variant="ghost" 
                       size="sm"

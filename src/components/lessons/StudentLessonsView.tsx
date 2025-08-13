@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -153,7 +154,7 @@ export function StudentLessonsView() {
 
     if (view === "detail" && selectedLesson) {
         return (
-            <div className="space-y-6 animate-fade-in">
+            <div className="space-y-6 animate-fade-in max-w-full overflow-hidden px-4 sm:px-0">
                 {/* Header */}
                 <div className="flex items-center gap-4">
                     <Button
@@ -167,14 +168,14 @@ export function StudentLessonsView() {
                 </div>
 
                 {/* Lesson Detail */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-full overflow-hidden">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 min-w-0">
+                    <div className="lg:col-span-2 min-w-0 overflow-hidden">
                         <Card>
                             <CardHeader>
                                 <div className="flex items-start justify-between">
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2">
+                                    <div className="space-y-2 min-w-0 flex-1">
+                                        <div className="flex items-center gap-2 flex-wrap">
                                             <Badge className={getTypeColor(selectedLesson.type)}>
                                                 {getTypeIcon(selectedLesson.type)}
                                                 <span className="ml-1 capitalize">{selectedLesson.type}</span>
@@ -184,8 +185,8 @@ export function StudentLessonsView() {
                                                 <span className="ml-1 capitalize">{selectedLesson.status.replace('_', ' ')}</span>
                                             </Badge>
                                         </div>
-                                        <CardTitle className="text-2xl">{selectedLesson.title}</CardTitle>
-                                        <p className="text-muted-foreground">{selectedLesson.description}</p>
+                                        <CardTitle className="text-xl lg:text-2xl break-words">{selectedLesson.title}</CardTitle>
+                                        <p className="text-muted-foreground break-words">{selectedLesson.description}</p>
                                     </div>
                                 </div>
                             </CardHeader>
@@ -204,7 +205,7 @@ export function StudentLessonsView() {
                                     <div className="prose max-w-none">
                                         <div className="bg-muted p-6 rounded-lg">
                                             <h3 className="text-lg font-semibold mb-3">Lesson Content</h3>
-                                            <p className="text-muted-foreground leading-relaxed">
+                                            <p className="text-muted-foreground leading-relaxed break-words">
                                                 {selectedLesson.content}
                                             </p>
                                         </div>
@@ -212,7 +213,7 @@ export function StudentLessonsView() {
                                 )}
 
                                 {/* Action Buttons */}
-                                <div className="flex gap-3">
+                                <div className="flex gap-3 flex-wrap">
                                     {selectedLesson.status !== "completed" && (
                                         <Button className="bg-gradient-primary hover:shadow-glow">
                                             <Play className="h-4 w-4 mr-2" />
@@ -232,7 +233,7 @@ export function StudentLessonsView() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-4 min-w-0">
+                    <div className="space-y-4 min-w-0 overflow-hidden">
                         <Card>
                             <CardHeader>
                                 <CardTitle>Lesson Details</CardTitle>
@@ -246,12 +247,12 @@ export function StudentLessonsView() {
 
                                     <div className="flex items-center gap-2">
                                         <BookOpen className="h-4 w-4 text-muted-foreground" />
-                                        <span className="text-sm">{selectedLesson.course}</span>
+                                        <span className="text-sm break-words">{selectedLesson.course}</span>
                                     </div>
 
                                     <div className="flex items-center gap-2">
                                         <User className="h-4 w-4 text-muted-foreground" />
-                                        <span className="text-sm">{selectedLesson.instructor}</span>
+                                        <span className="text-sm break-words">{selectedLesson.instructor}</span>
                                     </div>
 
                                     {selectedLesson.completedAt && (
@@ -271,26 +272,26 @@ export function StudentLessonsView() {
     }
 
     return (
-        <div className="space-y-6 animate-fade-in px-4 sm:px-0">
+        <div className="space-y-6 animate-fade-in px-4 sm:px-0 max-w-full overflow-hidden">
             {/* Header */}
             <div className="space-y-4">
-                <h1 className="text-3xl font-bold text-foreground">My Lessons</h1>
+                <h1 className="text-2xl lg:text-3xl font-bold text-foreground">My Lessons</h1>
 
-                <div className="flex flex-col sm:flex-row gap-4 overflow-hidden min-w-0">
-                    <div className="relative flex-1 max-w-md">
+                <div className="flex flex-col sm:flex-row gap-4 min-w-0 overflow-hidden">
+                    <div className="relative flex-1 max-w-md min-w-0">
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
                             placeholder="Search lessons..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-10"
+                            className="pl-10 w-full"
                         />
                     </div>
 
                     <select
                         value={selectedCourse}
                         onChange={(e) => setSelectedCourse(e.target.value)}
-                        className="px-3 py-2 bg-background border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                        className="px-3 py-2 bg-background border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring flex-shrink-0"
                     >
                         {courses.map(course => (
                             <option key={course} value={course}>{course}</option>
@@ -308,14 +309,14 @@ export function StudentLessonsView() {
                         onClick={() => handleLessonClick(lesson)}
                     >
                         <CardContent className="p-4 sm:p-6">
-                            <div className="flex items-start gap-3 sm:gap-4 overflow-hidden">
-                                <div className={`p-3 rounded-lg ${getTypeColor(lesson.type)}`}>
+                            <div className="flex items-start gap-3 sm:gap-4 min-w-0 overflow-hidden">
+                                <div className={`p-3 rounded-lg flex-shrink-0 ${getTypeColor(lesson.type)}`}>
                                     {getTypeIcon(lesson.type)}
                                 </div>
 
                                 <div className="flex-1 min-w-0 overflow-hidden">
-                                    <div className="flex items-start justify-between mb-2 overflow-hidden">
-                                        <h3 className="font-semibold text-base sm:text-lg group-hover:text-primary transition-colors truncate pr-2">
+                                    <div className="flex items-start justify-between mb-2 min-w-0 overflow-hidden">
+                                        <h3 className="font-semibold text-base sm:text-lg group-hover:text-primary transition-colors break-words flex-1 min-w-0">
                                             {lesson.title}
                                         </h3>
                                         <div className="flex items-center gap-2 flex-shrink-0 ml-4">
@@ -326,19 +327,19 @@ export function StudentLessonsView() {
                                         </div>
                                     </div>
 
-                                    <p className="text-muted-foreground mb-3">{lesson.description}</p>
+                                    <p className="text-muted-foreground mb-3 break-words">{lesson.description}</p>
 
                                     <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                                         <span className="flex items-center gap-1">
-                                            <BookOpen className="h-4 w-4" />
-                                            {lesson.course}
+                                            <BookOpen className="h-4 w-4 flex-shrink-0" />
+                                            <span className="break-words">{lesson.course}</span>
                                         </span>
                                         <span className="flex items-center gap-1">
-                                            <User className="h-4 w-4" />
-                                            {lesson.instructor}
+                                            <User className="h-4 w-4 flex-shrink-0" />
+                                            <span className="break-words">{lesson.instructor}</span>
                                         </span>
                                         <span className="flex items-center gap-1">
-                                            <Clock className="h-4 w-4" />
+                                            <Clock className="h-4 w-4 flex-shrink-0" />
                                             {lesson.duration}
                                         </span>
                                     </div>
