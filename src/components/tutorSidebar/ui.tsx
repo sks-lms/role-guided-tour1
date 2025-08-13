@@ -43,13 +43,8 @@ export function TutorSidebar() {
               {state.menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-<<<<<<< Updated upstream
-                    <NavLink 
-                      to={item.url} 
-=======
                     <NavLink
                       to={item.url}
->>>>>>> Stashed changes
                       className={handlers.getNavClass(item.url)}
                       data-tour={`nav-${item.title.toLowerCase()}`}
                     >

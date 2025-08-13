@@ -27,11 +27,7 @@ export function StudentDashboardLayout() {
 
                     <div className="flex-1 flex flex-col">
                         {/* Top Header */}
-<<<<<<< Updated upstream
-                        <header 
-=======
                         <header
->>>>>>> Stashed changes
                             className="h-16 bg-card border-b border-border flex items-center justify-between px-6 shadow-card"
                             data-tour="dashboard-header"
                         >
