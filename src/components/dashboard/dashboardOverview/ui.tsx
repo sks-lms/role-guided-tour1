@@ -35,7 +35,7 @@ export function DashboardOverview() {
             </div>
           </div>
         </div>
-        
+
         {/* Mobile subscription info */}
         <div className="lg:hidden mt-4 bg-white/10 backdrop-blur rounded-lg p-3 border border-white/20">
           <div className="flex items-center justify-between">
@@ -115,7 +115,7 @@ export function DashboardOverview() {
                     {task.due}
                   </p>
                 </div>
-                <Badge 
+                <Badge
                   variant={task.priority === 'high' ? 'default' : task.priority === 'medium' ? 'secondary' : 'outline'}
                   className="capitalize"
                 >

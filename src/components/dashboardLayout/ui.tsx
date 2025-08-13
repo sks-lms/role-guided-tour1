@@ -27,7 +27,11 @@ export function DashboardLayout() {
 
           <div className="flex-1 flex flex-col">
             {/* Top Header */}
+<<<<<<< Updated upstream
             <header 
+=======
+            <header
+>>>>>>> Stashed changes
               className="h-16 bg-card border-b border-border flex items-center justify-between px-6 shadow-card"
               data-tour="dashboard-header"
             >
@@ -59,11 +63,11 @@ export function DashboardLayout() {
                   <Settings className="h-5 w-5" />
                 </Button>
                 <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
-                                    <img
-                                        src={state.tutorData?.avatarUrl ?? 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                                        alt={state.tutorData?.avatarUrl ?? 'Michael Chean'}
-                                        className="w-7 h-7 rounded-full object-cover"
-                                    />
+                  <img
+                    src={state.tutorData?.avatarUrl ?? 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+                    alt={state.tutorData?.avatarUrl ?? 'Michael Chean'}
+                    className="w-7 h-7 rounded-full object-cover"
+                  />
                 </div>
               </div>
             </header>
