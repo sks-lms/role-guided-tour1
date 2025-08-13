@@ -271,12 +271,12 @@ export function StudentLessonsView() {
     }
 
     return (
-        <div className="space-y-6 animate-fade-in">
+        <div className="space-y-6 animate-fade-in px-4 sm:px-0">
             {/* Header */}
             <div className="space-y-4">
                 <h1 className="text-3xl font-bold text-foreground">My Lessons</h1>
 
-                <div className="flex flex-col sm:flex-row gap-4 overflow-hidden">
+                <div className="flex flex-col sm:flex-row gap-4 overflow-hidden min-w-0">
                     <div className="relative flex-1 max-w-md">
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input

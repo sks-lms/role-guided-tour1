@@ -200,7 +200,7 @@ export function LessonsView() {
         </div>
 
         {/* Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 overflow-hidden px-4 sm:px-0">
           <div className="lg:col-span-2 space-y-6 min-w-0">
             <Card className="border-0 shadow-card">
               <CardHeader>
@@ -425,7 +425,7 @@ export function LessonsView() {
 
   // List View (Default)
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 px-4 sm:px-0">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
