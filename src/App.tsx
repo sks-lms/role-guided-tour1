@@ -11,6 +11,7 @@ import { StudentLessonsView } from "@/components/lessons/StudentLessonsView";
 import { useEffect } from "react";
 import { useAppDispatch } from "./redux/hooks";
 import { sessionActions } from "./redux/sessionSlice";
+import { tourActions } from "./redux/tourSlice";
 import { useTokenValidation } from "./hooks/useTokenValidation";
 
 interface AppProps { role: 'tutor' | 'student' };
@@ -22,12 +23,15 @@ export default function App({ role }: AppProps) {
   useTokenValidation();
 
   useEffect(() => {
+    // Initialize tour state from localStorage
+    dispatch(tourActions.initializeTourFromStorage());
+    
     const handleSessionExpired = () => {
       dispatch(sessionActions.setShowSessionExpired(true));
     };
     window.addEventListener('sessionExpired', handleSessionExpired);
     return () => { window.removeEventListener('sessionExpired', handleSessionExpired); };
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>

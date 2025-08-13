@@ -15,6 +15,7 @@ export function StudentSidebar() {
         <Sidebar
             className={`${state.collapsed ? "w-16" : "w-64"} transition-all duration-300 border-r-0 shadow-elegant`}
             collapsible="icon"
+            data-tour="sidebar"
         >
             <SidebarContent className="bg-sidebar border-r border-sidebar-border">
                 {/* Header */}
@@ -42,7 +43,11 @@ export function StudentSidebar() {
                             {state.menuItems.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <NavLink to={item.url} className={handlers.getNavClass(item.url)}>
+                                        <NavLink 
+                                            to={item.url} 
+                                            className={handlers.getNavClass(item.url)}
+                                            data-tour={`nav-${item.title.toLowerCase()}`}
+                                        >
                                             <item.icon className={`h-5 w-5 ${state.collapsed ? "mx-auto" : "mr-3"}`} />
                                             {!state.collapsed && (
                                                 <span className="font-medium animate-fade-in">{item.title}</span>

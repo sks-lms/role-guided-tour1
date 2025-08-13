@@ -169,4 +169,30 @@ All colors MUST be HSL.
         @apply text-primary-glow;
         filter: drop-shadow(0 0 8px hsl(var(--primary-glow) / 0.5));
     }
+
+    /* Tour-specific styles */
+    .shepherd-modal-overlay-container {
+        background: rgba(0, 0, 0, 0.5) !important;
+        backdrop-filter: blur(4px) !important;
+    }
+    
+    .shepherd-element {
+        background: hsl(var(--card)) !important;
+        border: 1px solid hsl(var(--border)) !important;
+        border-radius: var(--radius) !important;
+        box-shadow: var(--shadow-elegant) !important;
+        color: hsl(var(--card-foreground)) !important;
+        max-width: 400px !important;
+        z-index: 9999 !important;
+    }
+    
+    .shepherd-arrow:before {
+        background: hsl(var(--card)) !important;
+        border: 1px solid hsl(var(--border)) !important;
+    }
+
+    /* Tour button hover effects */
+    .hover-scale:hover {
+        transform: scale(1.02);
+    }
 }

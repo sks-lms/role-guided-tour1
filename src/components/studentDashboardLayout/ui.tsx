@@ -8,6 +8,8 @@ import { RootState } from "@/redux/store";
 import { StudentSidebar } from "../studentSidebar";
 import { SessionExpiredModal } from "../modals/sessionExpired";
 import { useHandler } from "./handler";
+import { TourProvider } from "../tour/TourProvider";
+import { TourButton } from "../tour/TourButton";
 // import { useTokenValidation } from "@/hooks/useTokenValidation";
 
 export function StudentDashboardLayout() {
@@ -18,14 +20,17 @@ export function StudentDashboardLayout() {
     // useTokenValidation();
 
     return (
-        <>
+        <TourProvider>
             <SidebarProvider defaultOpen>
                 <div className="min-h-screen flex w-full bg-gradient-subtle">
                     <StudentSidebar />
 
                     <div className="flex-1 flex flex-col">
                         {/* Top Header */}
-                        <header className="h-16 bg-card border-b border-border flex items-center justify-between px-6 shadow-card">
+                        <header 
+                            className="h-16 bg-card border-b border-border flex items-center justify-between px-6 shadow-card"
+                            data-tour="dashboard-header"
+                        >
                             <div className="flex items-center gap-4">
                                 <SidebarTrigger className="hover:bg-muted rounded-lg p-2 transition-colors" />
                                 <div className="relative max-w-md w-full">
@@ -37,7 +42,7 @@ export function StudentDashboardLayout() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3" data-tour="profile-section">
                                 <Button
                                     variant="ghost"
                                     size="icon"
@@ -73,6 +78,7 @@ export function StudentDashboardLayout() {
                 </div>
             </SidebarProvider>
             <SessionExpiredModal open={showSessionExpired} />
-        </>
+            <TourButton />
+        </TourProvider>
     );
 }

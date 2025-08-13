@@ -5,6 +5,7 @@ import sessionStorage from 'redux-persist/lib/storage/session';
 import { combineReducers } from "@reduxjs/toolkit";
 import { tutorDashboardReducer } from "./tutorDashboardSlice";
 import { sessionReducer } from "./sessionSlice";
+import { tourReducer } from "./tourSlice";
 
 const persistConfig = {
   key: 'root',
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   tutorDashboard: tutorDashboardReducer,
   session: sessionReducer,
+  tour: tourReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

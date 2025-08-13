@@ -49,7 +49,7 @@ export function DashboardOverview() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-tour="dashboard-stats">
         {state.stats.map((stat, index) => (
           <Card key={index} className="hover:shadow-card transition-all duration-300 border-0 shadow-sm">
             <CardContent className="p-6">
