@@ -167,9 +167,9 @@ export function StudentLessonsView() {
                 </div>
 
                 {/* Lesson Detail */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 overflow-hidden">
                     {/* Main Content */}
-                    <div className="lg:col-span-2">
+                    <div className="lg:col-span-2 min-w-0">
                         <Card>
                             <CardHeader>
                                 <div className="flex items-start justify-between">
@@ -232,7 +232,7 @@ export function StudentLessonsView() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 min-w-0">
                         <Card>
                             <CardHeader>
                                 <CardTitle>Lesson Details</CardTitle>
@@ -276,7 +276,7 @@ export function StudentLessonsView() {
             <div className="space-y-4">
                 <h1 className="text-3xl font-bold text-foreground">My Lessons</h1>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 overflow-hidden">
                     <div className="relative flex-1 max-w-md">
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                         <Input
@@ -307,15 +307,15 @@ export function StudentLessonsView() {
                         className="hover:shadow-card transition-all duration-300 cursor-pointer group"
                         onClick={() => handleLessonClick(lesson)}
                     >
-                        <CardContent className="p-6">
-                            <div className="flex items-start gap-4">
+                        <CardContent className="p-4 sm:p-6">
+                            <div className="flex items-start gap-3 sm:gap-4 overflow-hidden">
                                 <div className={`p-3 rounded-lg ${getTypeColor(lesson.type)}`}>
                                     {getTypeIcon(lesson.type)}
                                 </div>
 
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex items-start justify-between mb-2">
-                                        <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                                <div className="flex-1 min-w-0 overflow-hidden">
+                                    <div className="flex items-start justify-between mb-2 overflow-hidden">
+                                        <h3 className="font-semibold text-base sm:text-lg group-hover:text-primary transition-colors truncate pr-2">
                                             {lesson.title}
                                         </h3>
                                         <div className="flex items-center gap-2 flex-shrink-0 ml-4">
@@ -328,7 +328,7 @@ export function StudentLessonsView() {
 
                                     <p className="text-muted-foreground mb-3">{lesson.description}</p>
 
-                                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                                         <span className="flex items-center gap-1">
                                             <BookOpen className="h-4 w-4" />
                                             {lesson.course}

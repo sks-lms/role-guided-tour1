@@ -200,8 +200,8 @@ export function LessonsView() {
         </div>
 
         {/* Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 overflow-hidden">
+          <div className="lg:col-span-2 space-y-6 min-w-0">
             <Card className="border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Lesson Details</CardTitle>
@@ -228,7 +228,7 @@ export function LessonsView() {
                   />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="course">Course</Label>
                     <Select value={formData.course} onValueChange={(value) => setFormData({...formData, course: value})}>
@@ -280,7 +280,7 @@ export function LessonsView() {
             </Card>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 min-w-0">
             <Card className="border-0 shadow-card">
               <CardHeader>
                 <CardTitle>Publishing</CardTitle>
@@ -384,7 +384,7 @@ export function LessonsView() {
         </div>
 
         {/* Lesson Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {[
             { label: "Total Views", value: selectedLesson.views, icon: Eye, color: "text-primary" },
             { label: "Completion Rate", value: `${selectedLesson.completion}%`, icon: PlayCircle, color: "text-secondary" },

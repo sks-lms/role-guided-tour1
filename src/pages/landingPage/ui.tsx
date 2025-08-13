@@ -120,7 +120,7 @@ export function LandingPage() {
       />
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-8 px-4">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -158,7 +158,7 @@ export function LandingPage() {
         </div>
 
         {/* Main Content */}
-        <div className="relative z-20 container mx-auto px-4">
+        <div className="relative z-20 container mx-auto px-6 md:px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-fade-in">
               <Badge className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
@@ -416,7 +416,7 @@ export function LandingPage() {
               <span className="font-bold text-xl">SK Solutions</span>
             </div>
 
-            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-6 gap-y-2 text-sm text-muted-foreground px-4">
               <a href="#" className="hover:text-primary transition-colors">About Us</a>
               <a href="#" className="hover:text-primary transition-colors">Contact</a>
               <a href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</a>
