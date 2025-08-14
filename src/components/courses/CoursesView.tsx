@@ -8,21 +8,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { RichTextEditor } from "@/components/ui/rich-text-editor";
-import { 
-  Search, 
-  Plus, 
-  Users, 
-  Clock, 
-  BookOpen,
-  Star,
-  Calendar,
-  ArrowRight,
-  Filter,
-  MoreVertical,
-  Play,
-  Edit
-} from "lucide-react";
+import { Search, Plus, Users, Clock, BookOpen, Star, ArrowRight, Filter, Play, Edit } from "lucide-react";
+import { RichTextEditor } from "../richTextEditor";
 
 const courses = [
   {
@@ -394,16 +381,16 @@ export function CoursesView() {
 
       {/* Create Course Dialog */}
       <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto mx-auto p-3 sm:p-6">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
+          <DialogTitle className="flex items-center gap-2 text-lg sm:text-xl">
             <BookOpen className="w-5 h-5 text-primary" />
             Create New Course
           </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 gap-4">
             <div className="space-y-2">
               <Label htmlFor="course-title">Course Title</Label>
               <Input
@@ -470,18 +457,19 @@ export function CoursesView() {
             />
           </div>
           
-          <div className="flex justify-end gap-2 pt-4 border-t">
+          <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4 border-t">
             <Button 
               variant="outline" 
               onClick={() => {
                 setIsCreateDialogOpen(false);
                 setNewCourse({ title: "", description: "", category: "", difficulty: "", duration: "" });
               }}
+              className="w-full sm:w-auto"
             >
               Cancel
             </Button>
             <Button 
-              className="bg-gradient-primary text-white"
+              className="bg-gradient-primary text-white w-full sm:w-auto"
               disabled={!newCourse.title || !newCourse.description}
             >
               Create Course

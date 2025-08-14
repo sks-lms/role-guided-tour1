@@ -23,9 +23,15 @@ export default function App({ role }: AppProps) {
   useTokenValidation();
 
   useEffect(() => {
+<<<<<<< Updated upstream
     // Initialize tour state from localStorage
     dispatch(tourActions.initializeTourFromStorage());
     
+=======
+    // Initialize tour state from localstorage
+    dispatch(tourActions.initializeTourFromStorage());
+
+>>>>>>> Stashed changes
     const handleSessionExpired = () => {
       dispatch(sessionActions.setShowSessionExpired(true));
     };

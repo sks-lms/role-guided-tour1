@@ -8,20 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-    Search,
-    UserPlus,
-    Mail,
-    Phone,
-    Calendar,
-    BookOpen,
-    MoreVertical,
-    Settings,
-    Eye,
-    Send,
-    Clock,
-    Users
-} from "lucide-react";
+import { Search, Mail, Phone, Calendar, BookOpen, MoreVertical, Settings, Eye, Send, Clock, Users } from "lucide-react";
 import { useHandler } from "./handler";
 
 export function StudentsView() {
@@ -172,7 +159,7 @@ export function StudentsView() {
 
             {/* Course Access Dialog */}
             <Dialog open={state.isDialogOpen} onOpenChange={handlers.setIsDialogOpen}>
-                <DialogContent className="max-w-lg">
+                <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-lg mx-auto p-3 sm:p-6">
                     <DialogHeader>
                         <DialogTitle className="flex items-center gap-2">
                             <BookOpen className="w-5 h-5 text-primary" />
@@ -283,7 +270,7 @@ export function StudentsView() {
 
             {/* Invite Student Dialog */}
             <Dialog open={state.isInviteDialogOpen} onOpenChange={handlers.setIsInviteDialogOpen}>
-                <DialogContent className="max-w-md">
+                <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-md mx-auto p-3 sm:p-6">
                     <DialogHeader>
                         <DialogTitle className="flex items-center gap-2">
                             <Send className="w-5 h-5 text-primary" />

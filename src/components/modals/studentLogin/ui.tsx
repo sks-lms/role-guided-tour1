@@ -11,7 +11,7 @@ export const StudentLoginModal: React.FC<StudentLoginModalProps> = ({ open, onOp
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-[440px] p-0 overflow-hidden bg-background border-0 shadow-elegant">
+            <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-[440px] mx-auto p-0 overflow-hidden bg-background border-0 shadow-elegant">
                 <div className="bg-gradient-primary p-6 text-center">
                     <DialogHeader>
                         <DialogTitle className="text-2xl font-bold text-primary-foreground">

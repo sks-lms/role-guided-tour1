@@ -7,11 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { RichTextEditor } from "@/components/ui/rich-text-editor";
-import { 
-  Search, 
-  Plus, 
-  Clock, 
+import {
+  Search,
+  Plus,
+  Clock,
   PlayCircle,
   Edit,
   Trash2,
@@ -25,6 +24,7 @@ import {
   Save,
   X
 } from "lucide-react";
+import { RichTextEditor } from "../richTextEditor";
 
 const lessons = [
   {
@@ -214,17 +214,17 @@ export function LessonsView() {
                   <Input
                     id="title"
                     value={formData.title}
-                    onChange={(e) => setFormData({...formData, title: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                     placeholder="Enter lesson title..."
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="description">Description</Label>
                   <Textarea
                     id="description"
                     value={formData.description}
-                    onChange={(e) => setFormData({...formData, description: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                     placeholder="Enter lesson description..."
                     rows={3}
                   />
@@ -233,7 +233,7 @@ export function LessonsView() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="course">Course</Label>
-                    <Select value={formData.course} onValueChange={(value) => setFormData({...formData, course: value})}>
+                    <Select value={formData.course} onValueChange={(value) => setFormData({ ...formData, course: value })}>
                       <SelectTrigger>
                         <SelectValue placeholder="Select course" />
                       </SelectTrigger>
@@ -247,7 +247,7 @@ export function LessonsView() {
 
                   <div>
                     <Label htmlFor="type">Lesson Type</Label>
-                    <Select value={formData.type} onValueChange={(value) => setFormData({...formData, type: value})}>
+                    <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, type: value })}>
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -265,7 +265,7 @@ export function LessonsView() {
                   <Input
                     id="duration"
                     value={formData.duration}
-                    onChange={(e) => setFormData({...formData, duration: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
                     placeholder="e.g., 15 minutes"
                   />
                 </div>
@@ -274,7 +274,7 @@ export function LessonsView() {
                   <Label>Lesson Content</Label>
                   <RichTextEditor
                     value={formData.content}
-                    onChange={(value) => setFormData({...formData, content: value})}
+                    onChange={(value) => setFormData({ ...formData, content: value })}
                     placeholder="Write your lesson content here. Use **bold**, *italic*, `code`, quotes, - lists, and [links](url) for rich formatting."
                   />
                 </div>
@@ -312,7 +312,7 @@ export function LessonsView() {
                     Choose File
                   </Button>
                 </div>
-                
+
                 {formData.type === "video" && (
                   <div className="border-2 border-dashed border-muted rounded-lg p-6 text-center">
                     <Video className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
@@ -369,8 +369,8 @@ export function LessonsView() {
               </div>
             </div>
             <div className="flex gap-3">
-              <Button 
-                variant="secondary" 
+              <Button
+                variant="secondary"
                 className="bg-white/20 hover:bg-white/30 text-white border-0"
                 onClick={() => handleEditLesson(selectedLesson)}
               >
@@ -416,7 +416,7 @@ export function LessonsView() {
               </div>
             </div>
             <p className="text-muted-foreground">
-              This is where the lesson content would be displayed. For video lessons, 
+              This is where the lesson content would be displayed. For video lessons,
               you would see the video player. For text lessons, the formatted content would appear here.
             </p>
           </CardContent>
@@ -434,7 +434,7 @@ export function LessonsView() {
           <h1 className="text-2xl lg:text-3xl font-bold text-foreground">Lessons</h1>
           <p className="text-muted-foreground">Create and manage your lesson content</p>
         </div>
-        <Button 
+        <Button
           onClick={handleCreateLesson}
           className="bg-gradient-primary text-white hover:shadow-glow transition-all flex-shrink-0"
         >
@@ -477,8 +477,8 @@ export function LessonsView() {
         {filteredLessons.map((lesson) => {
           const TypeIcon = getTypeIcon(lesson.type);
           return (
-            <Card 
-              key={lesson.id} 
+            <Card
+              key={lesson.id}
               className="border-0 shadow-card hover:shadow-elegant transition-all duration-300 cursor-pointer animate-scale-in group"
               onClick={() => handleLessonClick(lesson)}
             >
@@ -524,8 +524,13 @@ export function LessonsView() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 flex-shrink-0">
+<<<<<<< Updated upstream
                     <Button 
                       variant="ghost" 
+=======
+                    <Button
+                      variant="ghost"
+>>>>>>> Stashed changes
                       size="sm"
                       onClick={(e) => {
                         e.stopPropagation();
