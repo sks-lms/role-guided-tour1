@@ -524,13 +524,8 @@ export function LessonsView() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 flex-shrink-0">
-<<<<<<< Updated upstream
-                    <Button 
-                      variant="ghost" 
-=======
                     <Button
                       variant="ghost"
->>>>>>> Stashed changes
                       size="sm"
                       onClick={(e) => {
                         e.stopPropagation();

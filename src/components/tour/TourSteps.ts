@@ -1,15 +1,8 @@
 export function getTutorTourSteps(): any[] {
-<<<<<<< Updated upstream
   return [
     {
       title: 'Welcome to Your Tutor Dashboard! 🎓',
       text: `
-=======
-    return [
-        {
-            title: 'Welcome to Your Tutor Dashboard! 🎓',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Welcome to your comprehensive LMS dashboard! Let's take a quick tour to help you get started with managing your students, courses, and lessons.</p>
           <div class="bg-primary/10 p-3 rounded-lg border border-primary/20">
@@ -17,7 +10,6 @@ export function getTutorTourSteps(): any[] {
           </div>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="dashboard-header"]',
         on: 'bottom',
@@ -26,16 +18,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'Navigation Sidebar 📚',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="dashboard-header"]',
-                on: 'bottom',
-            },
-        },
-        {
-            title: 'Navigation Sidebar 📚',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>This is your main navigation hub. Here you can access:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -47,7 +29,6 @@ export function getTutorTourSteps(): any[] {
           <p class="text-sm text-muted-foreground">💡 The sidebar can be collapsed for more workspace.</p>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="sidebar"]',
         on: 'right',
@@ -56,16 +37,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'Dashboard Overview 📊',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="sidebar"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Dashboard Overview 📊',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Your dashboard provides a comprehensive overview of your teaching activities:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -76,7 +47,6 @@ export function getTutorTourSteps(): any[] {
           </ul>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="dashboard-stats"]',
         on: 'bottom',
@@ -85,16 +55,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'Students Management 👥',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="dashboard-stats"]',
-                on: 'bottom',
-            },
-        },
-        {
-            title: 'Students Management 👥',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Click on "Students" in the sidebar to:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -109,7 +69,6 @@ export function getTutorTourSteps(): any[] {
           </div>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="nav-students"]',
         on: 'right',
@@ -118,16 +77,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'Courses Management 📖',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="nav-students"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Courses Management 📖',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>The Courses section is where you:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -140,7 +89,6 @@ export function getTutorTourSteps(): any[] {
           <p class="text-sm text-muted-foreground">💡 Each course can contain multiple lessons and assessments.</p>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="nav-courses"]',
         on: 'right',
@@ -149,16 +97,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'Lessons Management ✏️',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="nav-courses"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Lessons Management ✏️',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>In the Lessons section, you can:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -173,7 +111,6 @@ export function getTutorTourSteps(): any[] {
           </div>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="nav-lessons"]',
         on: 'right',
@@ -182,16 +119,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'Profile & Settings ⚙️',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="nav-lessons"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Profile & Settings ⚙️',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Your profile section includes:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -204,7 +131,6 @@ export function getTutorTourSteps(): any[] {
           <p class="text-sm text-muted-foreground">🔔 Check the bell icon for important notifications and updates.</p>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="profile-section"]',
         on: 'left',
@@ -213,16 +139,6 @@ export function getTutorTourSteps(): any[] {
     {
       title: 'You\'re All Set! 🎉',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="profile-section"]',
-                on: 'left',
-            },
-        },
-        {
-            title: 'You\'re All Set! 🎉',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-4">
           <p>Congratulations! You've completed the tutor dashboard tour.</p>
           <div class="bg-gradient-primary p-4 rounded-lg text-white">
@@ -240,7 +156,6 @@ export function getTutorTourSteps(): any[] {
           <p class="text-xs text-muted-foreground">💡 Remember: You can restart this tour anytime using the help button.</p>
         </div>
       `,
-<<<<<<< Updated upstream
     },
   ];
 }
@@ -250,17 +165,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Welcome to Your Learning Dashboard! 📚',
       text: `
-=======
-        },
-    ];
-}
-
-export function getStudentTourSteps(): any[] {
-    return [
-        {
-            title: 'Welcome to Your Learning Dashboard! 📚',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Welcome to your personal learning hub! Let's explore how you can access courses, track progress, and manage your learning journey.</p>
           <div class="bg-primary/10 p-3 rounded-lg border border-primary/20">
@@ -268,7 +172,6 @@ export function getStudentTourSteps(): any[] {
           </div>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="dashboard-header"]',
         on: 'bottom',
@@ -277,16 +180,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Student Navigation 🧭',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="dashboard-header"]',
-                on: 'bottom',
-            },
-        },
-        {
-            title: 'Student Navigation 🧭',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Your navigation sidebar provides quick access to:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -297,7 +190,6 @@ export function getStudentTourSteps(): any[] {
           <p class="text-sm text-muted-foreground">💡 The sidebar helps you stay organized and find content quickly.</p>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="sidebar"]',
         on: 'right',
@@ -306,16 +198,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Your Learning Progress 📈',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="sidebar"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Your Learning Progress 📈',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Your dashboard shows your learning journey:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -329,7 +211,6 @@ export function getStudentTourSteps(): any[] {
           </div>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="dashboard-stats"]',
         on: 'bottom',
@@ -338,16 +219,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Course Enrollment 📖',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="dashboard-stats"]',
-                on: 'bottom',
-            },
-        },
-        {
-            title: 'Course Enrollment 📖',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>In the Courses section, you can:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -360,7 +231,6 @@ export function getStudentTourSteps(): any[] {
           <p class="text-sm text-muted-foreground">🔍 Use filters to find courses that match your interests and skill level.</p>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="nav-courses"]',
         on: 'right',
@@ -369,16 +239,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Accessing Lessons 📝',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="nav-courses"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Accessing Lessons 📝',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>The Lessons section is your learning workspace:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -393,7 +253,6 @@ export function getStudentTourSteps(): any[] {
           </div>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="nav-lessons"]',
         on: 'right',
@@ -402,16 +261,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Profile & Account 👤',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="nav-lessons"]',
-                on: 'right',
-            },
-        },
-        {
-            title: 'Profile & Account 👤',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-3">
           <p>Manage your learning experience through:</p>
           <ul class="list-disc list-inside space-y-1 text-sm">
@@ -424,7 +273,6 @@ export function getStudentTourSteps(): any[] {
           <p class="text-sm text-muted-foreground">🔔 Stay updated with notifications about new content and deadlines.</p>
         </div>
       `,
-<<<<<<< Updated upstream
       attachTo: {
         element: '[data-tour="profile-section"]',
         on: 'left',
@@ -433,16 +281,6 @@ export function getStudentTourSteps(): any[] {
     {
       title: 'Start Your Learning Journey! 🚀',
       text: `
-=======
-            attachTo: {
-                element: '[data-tour="profile-section"]',
-                on: 'left',
-            },
-        },
-        {
-            title: 'Start Your Learning Journey! 🚀',
-            text: `
->>>>>>> Stashed changes
         <div class="space-y-4">
           <p>Perfect! You're ready to begin your learning adventure.</p>
           <div class="bg-gradient-primary p-4 rounded-lg text-white">
@@ -460,11 +298,6 @@ export function getStudentTourSteps(): any[] {
           <p class="text-xs text-muted-foreground">💡 You can restart this tour anytime using the help button.</p>
         </div>
       `,
-<<<<<<< Updated upstream
     },
   ];
-=======
-        },
-    ];
->>>>>>> Stashed changes
 }
