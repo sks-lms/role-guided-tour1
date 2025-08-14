@@ -159,6 +159,48 @@ export default {
                         opacity: '1',
                         transform: 'translateY(0)'
                     }
+                },
+                'slideDown': {
+                    '0%': {
+                        transform: 'translateY(-10px)',
+                        opacity: '0.5'
+                    },
+                    '50%': {
+                        transform: 'translateY(10px)',
+                        opacity: '1'
+                    },
+                    '100%': {
+                        transform: 'translateY(-10px)',
+                        opacity: '0.5'
+                    }
+                },
+                'shimmer': {
+                    '0%': {
+                        backgroundPosition: '200% 0'
+                    },
+                    '100%': {
+                        backgroundPosition: '-200% 0'
+                    }
+                },
+                'morphing': {
+                    '0%, 100%': {
+                        borderRadius: '20px',
+                        transform: 'rotate(0deg)'
+                    },
+                    '50%': {
+                        borderRadius: '50%',
+                        transform: 'rotate(180deg)'
+                    }
+                },
+                'bounce-slow': {
+                    '0%, 100%': {
+                        transform: 'translateY(0)',
+                        animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+                    },
+                    '50%': {
+                        transform: 'translateY(-25%)',
+                        animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+                    }
                 }
             },
             animation: {
@@ -169,7 +211,11 @@ export default {
                 'scale-in': 'scale-in 0.3s ease-out',
                 'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
                 'float': 'float 6s ease-in-out infinite',
-                'slideUp': 'slideUp 1s ease-out'
+                'slideUp': 'slideUp 1s ease-out',
+                'slideDown': 'slideDown 2s ease-in-out infinite',
+                'shimmer': 'shimmer 3s ease-in-out infinite',
+                'morphing': 'morphing 4s ease-in-out infinite',
+                'bounce-slow': 'bounce-slow 3s infinite'
             }
         }
     },
