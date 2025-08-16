@@ -69,8 +69,8 @@ export function useHandler(): [State, Handlers] {
 
         try {
             type responseDto = { url?: string; action?: string; fields?: Record<string, string>; data?: any; }
-            console.log(`selectedPayment: ${selectedPayment}`)
-            const response: responseDto = await POST<responseDto>('api/payments/checkout', { email, plan, gateway: selectedPayment }, token);
+            console.log(`selectedPayment: ${selectedPayment}, selectedPlan: ${selectedPlan}`)
+            const response: responseDto = await POST<responseDto>('api/payments/checkout', { email, plan: selectedPlan, gateway: selectedPayment }, token);
             const ipayData = response.action && response.fields ? response
                 : response.data && response.data.action && response.data.fields ? response.data
                     : response.url && typeof response.url === 'object' && (response.url as any).action && (response.url as any).fields ? (response.url as any)

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface State {
-    invitatiotionHistory: { email: string; status: 'PENDING' | 'ACCEPTED' | 'REJECTED'; date: Date}[];
+    invitatiotionHistory: { id: string; email: string; status: 'PENDING' | 'ACCEPTED' | 'REJECTED'; date: Date}[];
 }
 
 const initialState: State = {
@@ -12,7 +12,7 @@ const slice = createSlice({
     name: "tutorDashboard",
     initialState,
     reducers: {
-        setInvitationHistory(state, action: PayloadAction<{ email: string; status: 'PENDING' | 'ACCEPTED' | 'REJECTED'; date: Date}[]>) {
+        setInvitationHistory(state, action: PayloadAction<{ id:string; email: string; status: 'PENDING' | 'ACCEPTED' | 'REJECTED'; date: Date}[]>) {
             state.invitatiotionHistory = action.payload;
         },
     },

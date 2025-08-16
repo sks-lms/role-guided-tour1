@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { StudentLoginModalProps, useHandler } from "./handler";
 
-export const StudentLoginModal: React.FC<StudentLoginModalProps> = ({ open, onOpenChange }) => {
-    const [state, handlers] = useHandler(onOpenChange);
+export const StudentLoginModal: React.FC<StudentLoginModalProps> = ({ open, onOpenChange, prefillEmail }) => {
+    const [state, handlers] = useHandler(onOpenChange, prefillEmail);
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
@@ -78,6 +78,7 @@ export const StudentLoginModal: React.FC<StudentLoginModalProps> = ({ open, onOp
                                             type="email"
                                             placeholder="Enter your email"
                                             className="pl-10 h-12 transition-all duration-300 focus:shadow-card"
+                                            disabled={!!prefillEmail}
                                             {...state.register("email", {
                                                 required: "Email is required",
                                                 pattern: {

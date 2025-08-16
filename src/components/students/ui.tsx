@@ -98,58 +98,68 @@ export function StudentsView() {
                                 </Button>
                             </div>
                         </CardHeader>
+
                         <CardContent className="space-y-4">
-                            <div className="space-y-2 text-sm">
-                                <div className="flex items-center text-muted-foreground">
-                                    <Mail className="w-4 h-4 mr-2" />
+                            <div className="space-y-2">
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <Mail className="w-4 h-4" />
                                     {student.email}
                                 </div>
-                                <div className="flex items-center text-muted-foreground">
-                                    <Phone className="w-4 h-4 mr-2" />
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <Phone className="w-4 h-4" />
                                     {student.phone}
                                 </div>
-                                <div className="flex items-center text-muted-foreground">
-                                    <Calendar className="w-4 h-4 mr-2" />
-                                    Joined {new Date(student.joinDate).toLocaleDateString()}
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <Calendar className="w-4 h-4" />
+                                    Joined {student.joinDate}
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <div className="flex justify-between text-sm">
-                                    <span className="text-muted-foreground">Progress</span>
-                                    <span className="font-medium">{student.progress}%</span>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-sm font-medium">Progress</span>
+                                    <span className="text-sm text-muted-foreground">{student.progress}%</span>
                                 </div>
                                 <div className="w-full bg-muted rounded-full h-2">
                                     <div
                                         className="bg-gradient-primary h-2 rounded-full transition-all duration-300"
                                         style={{ width: `${student.progress}%` }}
-                                    ></div>
+                                    />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
-                                <p className="text-sm font-medium text-foreground">Enrolled Courses</p>
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <BookOpen className="w-4 h-4" />
+                                    <span className="font-medium">Courses ({student.courses.length})</span>
+                                </div>
                                 <div className="flex flex-wrap gap-1">
-                                    {student.courses.map((course, index) => (
+                                    {student.courses.slice(0, 2).map((course, index) => (
                                         <Badge key={index} variant="outline" className="text-xs">
                                             {course}
                                         </Badge>
                                     ))}
+                                    {student.courses.length > 2 && (
+                                        <Badge variant="outline" className="text-xs">
+                                            +{student.courses.length - 2} more
+                                        </Badge>
+                                    )}
                                 </div>
                             </div>
 
-                            <div className="flex gap-2 pt-2">
+                            <div className="flex items-center justify-between pt-2">
+                                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <Clock className="w-4 h-4" />
+                                    {student.lastActive}
+                                </div>
                                 <Button
                                     variant="outline"
                                     size="sm"
-                                    className="flex-1"
                                     onClick={() => handlers.handleCourseAccess(student)}
+                                    className="text-primary hover:text-primary"
                                 >
                                     <Settings className="w-4 h-4 mr-1" />
                                     Manage Access
-                                </Button>
-                                <Button variant="outline" size="sm">
-                                    <Eye className="w-4 h-4" />
                                 </Button>
                             </div>
                         </CardContent>

@@ -36,10 +36,10 @@ export function useHandler(): [State, Handlers] {
                 const decoded: any = jwtDecode(token);
                 const tutorId = decoded.id;
 
-                type responseDto = { id: string; email: string; subscriptionStatus: 'active' | 'inactive' | 'expired' | 'cancelled'; }
+                type responseDto = { id: string; email: string; subscriptionStatus: 'ACTIVE' | 'INACTIVE' | 'EXPIRED' | 'CANCELLED'; }
                 const response: responseDto = await GET<responseDto>(`/api/tutors/${tutorId}`, token);
 
-                if (response.subscriptionStatus === 'active') {
+                if (response.subscriptionStatus === 'ACTIVE') {
                     navigate('/tutor-dashboard/home');
                 } else {
                     // Redirect to payment selection page instead of directly to checkout

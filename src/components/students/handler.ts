@@ -8,10 +8,10 @@ import { tutorDashboardActions } from "@/redux/tutorDashboardSlice";
 
 export function useHandler(): [State, Handlers] {
     const [searchTerm, setSearchTerm] = useState("");
-    const [selectedStudent, setSelectedStudent] = useState(null);
+    const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isInviteDialogOpen, setIsInviteDialogOpen] = useState(false);
-    const [selectedCourses, setSelectedCourses] = useState([]);
+    const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
     const [accessDuration, setAccessDuration] = useState("1_month");
     const [customDuration, setCustomDuration] = useState("");
     const [inviteEmail, setInviteEmail] = useState("");
@@ -98,11 +98,12 @@ export function useHandler(): [State, Handlers] {
     useEffect(() => {
         const fetchInvitationHistory = async () => {
             if (!token) return; // Don't make API call if no token
-            const response = await GET<{ invitations: { email: string; status: 'pending' | 'accepted' | 'rejected'; invitedAt: Date; acceptedAt?: Date; }[] }>('/api/invitations', token);
+            const response = await GET<{ invitations: { id: string; email: string; status: 'PENDING' | 'ACCEPTED' | 'REJECTED'; invitedAt: Date; acceptedAt?: Date; }[] }>(`/api/invitations/${tutorId}`, token);
             if (response) {
                 dispatch(tutorDashboardActions.setInvitationHistory(
                     response.invitations.map(invite => ({
-                        ...invite,
+                        id: invite.id,
+                        email: invite.email,
                         status: invite.status.toUpperCase() as 'PENDING' | 'ACCEPTED' | 'REJECTED',
                         date: invite.acceptedAt ?? invite.invitedAt
                     }))
@@ -110,16 +111,14 @@ export function useHandler(): [State, Handlers] {
             }
         }
         fetchInvitationHistory();
-    }, [token, history, dispatch]);
+    }, [token, tutorId, dispatch]);
 
     const filteredStudents = students.filter(student =>
         student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         student.email.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    const handleCourseAccess = (student: {
-        id: number; name: string; email: string; phone: string; joinDate: string; status: string; courses: string[]; progress: number; lastActive: string; inviteStatus: string;
-    }) => {
+    const handleCourseAccess = (student: Student) => {
         setSelectedStudent(student);
         setSelectedCourses(student.courses);
         setIsDialogOpen(true);
@@ -156,12 +155,13 @@ interface State {
     isDialogOpen: boolean;
     accessDuration: string;
     customDuration: string;
-    selectedStudent: Student;
+    selectedStudent: Student | null;
     availableCourses: string[];
     selectedCourses: string[];
     inviteEmail: string;
     invitationHistory: INVITATION[];
 };
+
 interface Handlers {
     getInitials: (name: string) => string;
     setIsInviteDialogOpen: Dispatch<SetStateAction<boolean>>;
@@ -189,6 +189,7 @@ interface Student {
 }
 
 interface INVITATION {
+    id: string;
     email: string;
     status: "PENDING" | "ACCEPTED" | "REJECTED";
     date: Date;

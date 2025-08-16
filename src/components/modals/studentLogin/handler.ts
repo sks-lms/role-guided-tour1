@@ -1,14 +1,21 @@
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FieldErrors, useForm, UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 
-export function useHandler(onOpenChange: (open: boolean) => void): [State, Handlers] {
+export function useHandler(onOpenChange: (open: boolean) => void, prefillEmail?: string): [State, Handlers] {
     const [step, setStep] = useState<"email" | "code">("email");
     const [isLoading, setIsLoading] = useState(false);
-    const { register, handleSubmit, formState: { errors }, watch } = useForm<FormData>();
+    const { register, handleSubmit, formState: { errors }, watch, setValue } = useForm<FormData>();
     const { toast } = useToast();
 
     const email = watch("email");
+
+    // Pre-fill email if provided
+    useEffect(() => {
+        if (prefillEmail) {
+            setValue("email", prefillEmail);
+        }
+    }, [prefillEmail, setValue]);
 
     const handleEmailSubmit = async (data: FormData) => {
         setIsLoading(true);
@@ -16,7 +23,10 @@ export function useHandler(onOpenChange: (open: boolean) => void): [State, Handl
         const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/students/login/request-login-code`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, redirectUri: import.meta.env.VITE_APP_BASE_URL + '/student/oauth/redirect' }),
+            body: JSON.stringify({ 
+                email, 
+                redirectUri: import.meta.env.VITE_APP_BASE_URL + '/student/oauth/redirect' 
+            }),
         });
 
         if (!await response.json()) {
@@ -67,6 +77,7 @@ interface Handlers {
 export interface StudentLoginModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
+    prefillEmail?: string;
 }
 
 interface FormData {

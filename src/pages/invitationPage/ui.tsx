@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Check, X, GraduationCap, Mail, User } from "lucide-react";
 import { useHandler } from "./handler";
+import { StudentLoginModal } from "@/components/modals/studentLogin";
 
 export function InvitationPage() {
     const [state, handlers] = useHandler();
@@ -145,6 +146,13 @@ export function InvitationPage() {
                     </p>
                 </div>
             </div>
+
+            {/* Student Login Modal for non-Gmail emails */}
+            <StudentLoginModal 
+                open={state.showLoginModal} 
+                onOpenChange={handlers.setShowLoginModal}
+                prefillEmail={state.email}
+            />
         </div>
     );
 };

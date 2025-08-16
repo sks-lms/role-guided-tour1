@@ -7,6 +7,28 @@ import { useHandler } from "./handler";
 export function DashboardOverview() {
   const [state, handlers] = useHandler();
 
+  if (state.loading) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-gradient-primary rounded-xl p-6 text-white">
+          <div className="animate-pulse">
+            <div className="h-8 bg-white/20 rounded mb-2"></div>
+            <div className="h-4 bg-white/20 rounded w-3/4"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="bg-card rounded-lg p-6 animate-pulse">
+              <div className="h-4 bg-muted rounded mb-2"></div>
+              <div className="h-8 bg-muted rounded mb-2"></div>
+              <div className="h-3 bg-muted rounded w-1/2"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       {/* Welcome Section */}
@@ -19,16 +41,26 @@ export function DashboardOverview() {
           <div className="hidden lg:flex items-center gap-6">
             <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
               <div className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <div className={`w-3 h-3 rounded-full animate-pulse ${
+                  state.tutorData?.subscriptionStatus === 'ACTIVE' ? 'bg-green-400' : 'bg-red-400'
+                }`}></div>
                 <div>
                   <p className="text-sm text-white/80">Subscription Status</p>
-                  <p className="font-semibold">Active Premium</p>
+                  <p className="font-semibold">
+                    {state.tutorData?.subscriptionStatus === 'ACTIVE' ? 'Active Premium' : 'Inactive'}
+                  </p>
                 </div>
               </div>
-              <div className="mt-2 pt-2 border-t border-white/20">
-                <p className="text-xs text-white/70">Ends: Dec 15, 2024</p>
-                <p className="text-xs text-white/70">28 days remaining</p>
-              </div>
+              {state.tutorData?.subscriptionEndDate && (
+                <div className="mt-2 pt-2 border-t border-white/20">
+                  <p className="text-xs text-white/70">
+                    Ends: {new Date(state.tutorData.subscriptionEndDate).toLocaleDateString()}
+                  </p>
+                  <p className="text-xs text-white/70">
+                    {Math.ceil((new Date(state.tutorData.subscriptionEndDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} days remaining
+                  </p>
+                </div>
+              )}
             </div>
             <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
               <Award className="w-10 h-10 text-white" />
@@ -40,10 +72,18 @@ export function DashboardOverview() {
         <div className="lg:hidden mt-4 bg-white/10 backdrop-blur rounded-lg p-3 border border-white/20">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium">Active Premium</span>
+              <div className={`w-2 h-2 rounded-full animate-pulse ${
+                state.tutorData?.subscriptionStatus === 'ACTIVE' ? 'bg-green-400' : 'bg-red-400'
+              }`}></div>
+              <span className="text-sm font-medium">
+                {state.tutorData?.subscriptionStatus === 'ACTIVE' ? 'Active Premium' : 'Inactive'}
+              </span>
             </div>
-            <span className="text-xs text-white/70">Ends Dec 15, 2024</span>
+            {state.tutorData?.subscriptionEndDate && (
+              <span className="text-xs text-white/70">
+                Ends {new Date(state.tutorData.subscriptionEndDate).toLocaleDateString()}
+              </span>
+            )}
           </div>
         </div>
       </div>

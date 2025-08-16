@@ -1,8 +1,8 @@
 import axios, { AxiosError } from 'axios';
-import { useToast } from './use-toast';
+// import { useToast } from './use-toast';
 
 export function useAPI() {
-    const { toast } = useToast();
+    // const { toast } = useToast();
 
     // Event to trigger session expired modal
     const triggerSessionExpired = () => {
@@ -52,19 +52,19 @@ export function useAPI() {
             return response.data.data as T;
         } catch (e) {
             if ((e as AxiosError).response) {
-                toast({
-                    title: "Something Went Wrong!!",
-                    description: e.response.data.message,
-                    variant: 'destructive'
-                });
+                // toast({
+                //     title: "Something Went Wrong!!",
+                //     description: e.response.data.message,
+                //     variant: 'destructive'
+                // });
                 throw (e as AxiosError).response as unknown as ApiErrorResponse;
             }
             else {
-                toast({
-                    title: "Something Went Wrong!!",
-                    description: "Something went wrong, please try again",
-                    variant: 'destructive'
-                });
+                // toast({
+                //     title: "Something Went Wrong!!",
+                //     description: "Something went wrong, please try again",
+                //     variant: 'destructive'
+                // });
                 throw { data: { message: "Something went wrong, please try again" } };
             }
         }
@@ -77,19 +77,19 @@ export function useAPI() {
             return response.data.data as T;
         } catch (e) {
             if ((e as AxiosError).response) {
-                toast({
-                    title: "Something Went Wrong!!",
-                    description: e.response.data.message,
-                    variant: 'destructive'
-                });
+                // toast({
+                //     title: "Something Went Wrong!!",
+                //     description: e.response.data.message,
+                //     variant: 'destructive'
+                // });
                 throw (e as AxiosError).response as unknown as ApiErrorResponse;
             }
             else {
-                toast({
-                    title: "Something Went Wrong!!",
-                    description: "Something went wrong, please try again",
-                    variant: 'destructive'
-                });
+                // toast({
+                //     title: "Something Went Wrong!!",
+                //     description: "Something went wrong, please try again",
+                //     variant: 'destructive'
+                // });
                 throw { data: { message: "Something went wrong, please try again" } };
             }
         }
