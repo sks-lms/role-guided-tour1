@@ -3,7 +3,6 @@ import { useFirstTimeTour } from '@/hooks/useFirstTimeTour';
 import { useTour } from '@/hooks/useTour';
 
 interface TourProviderProps {
-<<<<<<< Updated upstream
   children: React.ReactNode;
 }
 
@@ -15,19 +14,6 @@ export function TourProvider({ children }: TourProviderProps) {
     // Add styles for Shepherd.js tour
     const style = document.createElement('style');
     style.textContent = `
-=======
-    children: React.ReactNode;
-}
-
-export function TourProvider({ children }: TourProviderProps) {
-    const { shouldShowTour, markTourAsCompleted, userType } = useFirstTimeTour();
-    const { startTour } = useTour();
-
-    useEffect(() => {
-        // Add styles for Shepherd.js tour
-        const style = document.createElement('style');
-        style.textContent = `
->>>>>>> Stashed changes
       .shepherd-modal-overlay-container {
         background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(4px);
@@ -141,7 +127,6 @@ export function TourProvider({ children }: TourProviderProps) {
         border: 1px solid hsl(var(--border));
       }
     `;
-<<<<<<< Updated upstream
     document.head.appendChild(style);
 
     // Auto-start tour for first-time users
@@ -162,26 +147,4 @@ export function TourProvider({ children }: TourProviderProps) {
   }, [shouldShowTour, userType, startTour]);
 
   return <>{children}</>;
-=======
-        document.head.appendChild(style);
-
-        // Auto-start tour for first-time users
-        if (shouldShowTour && userType && (userType === 'tutor' || userType === 'student')) {
-            // Small delay to ensure DOM is ready
-            const timer = setTimeout(() => {
-                startTour(userType as 'tutor' | 'student');
-            }, 1000);
-
-            return () => clearTimeout(timer);
-        }
-
-        return () => {
-            if (style.parentNode) {
-                style.parentNode.removeChild(style);
-            }
-        };
-    }, [shouldShowTour, userType, startTour]);
-
-    return <>{children}</>;
->>>>>>> Stashed changes
 }
